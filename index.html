@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home page</title>
   <!-- Cloudflare Web Analytics -->
    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cf1bcd6ebe1b4fe7a16a9c96f4a8242d"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
-  <h1>Soon something nice here :D</h1>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#about">About me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <main>
+    <article id="about">
+      <h1>Gabriel Bahniuk - Crafting User-Friendly and Responsive Frontend Applications.</h1>
+      <p>I am a Frontend Developer based in Germany with years of experience building performant, accessible and scalable web applications using mostly React with TypeScript, GraphQL and Node.js. 
+        Currently part of a dynamic team, I focus on delivering clean, maintainable code and seamless user experiences. 
+        Constantly learning and pushing boundaries to stay at the forefront of frontend development.
+      </p>
+      <a href="/projects">View Projects</a>
+    </article>
+    <section id="projects">
+
+
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; {{ site.time | date: '%Y' }} Gabriel Bahniuk</p>
+  </footer>
+
 </body>
 </html>
