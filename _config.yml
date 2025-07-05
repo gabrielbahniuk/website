@@ -1,1 +1,30 @@
-# _config.yml
+author: Gabriel Bahniuk
+scope: Frontend Development
+company:
+  title: Scalable Capital
+  position: Senior Frontend Engineer
+  url: https://de.scalable.capital
+position: Senior Frontend Engineer
+description: >
+  Hey, I'm Gabriel — a Senior Frontend Engineer at [Scalable Capital](https://de.scalable.capital), where I build key user-facing features that shape the financial experience of hundreds of thousands of clients.
+  I specialize in React, TypeScript, GraphQL, and Node.js, with a focus on performance, accessibility, and intuitive design.
+  Based in Germany, I'm passionate about clean, maintainable code and creating digital products that genuinely improve people's lives.
+social:
+  linkedin:
+    label: LinkedIn 
+    href: https://www.linkedin.com/in/gabriel-dias-bahniuk/
+  github:
+    label: GitHub
+    href: https://github.com/gabrielbahniuk 
+  email:
+    label: Email
+    href: mailto:hello@gabrielbahniuk.dev
+
+
+# Exclude files and directories from the build
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock

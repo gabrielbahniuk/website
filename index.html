@@ -1,46 +1,52 @@
 ---
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home page</title>
-  <!-- Cloudflare Web Analytics -->
-   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cf1bcd6ebe1b4fe7a16a9c96f4a8242d"}'></script><!-- End Cloudflare Web Analytics -->
+  <meta name="author" content="{{ site.author }}">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="pink" />
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/styles.css" />
+  <title>{{ site.author }} - {{ site.scope }}</title>
+  <link rel="canonical" href="{{ page.url }}">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cf1bcd6ebe1b4fe7a16a9c96f4a8242d"}'></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <nav>
+  <div id="container">
+    <header>
+      <img src="assets/avatar.svg" alt="Avatar of {{ site.author }}" class="profile-image" />
+      <h1>{{ site.author }}</h1>
+      <h2>{{ site.company.position }} @ {{ site.company.title }}</h2>
+    </header>
+
+    <main>
+      <section id="about">
+        <h3>About me</h3>
+        <p>{{ site.description | markdownify }}</p>
+      </section>
+
+      <section id="contact">
+        <h3>Contact</h3>
+        <p>
+          Are you working on something interesting or want to say hi? Feel free to reach out via
+          <a href="{{ site.social.email.href }}">{{ site.social.email.label }}</a>
+          or connect with me on
+         <a href="{{ site.social.linkedin.href }}" target="_blank" rel="noopener noreferrer">{{ site.social.linkedin.label }}</a>.
+        </p>
+      </section>
+    </main>
+    
+    <footer>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#about">About me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li>{% include external-link.html href=site.social.linkedin.href label=site.social.linkedin.label className="link-text" %}</li>
+        <li>{% include external-link.html href=site.social.github.href label=site.social.github.label className="link-text" %}</li>
+        <li>{% include external-link.html href=site.social.email.href label=site.social.email.label className="link-text" %}</li>
       </ul>
-    </nav>
-  </header>
-  
-
-  <main>
-    <article id="about">
-      <h1>Gabriel Bahniuk - Crafting User-Friendly and Responsive Frontend Applications.</h1>
-      <p>I am a Frontend Developer based in Germany with years of experience building performant, accessible and scalable web applications using mostly React with TypeScript, GraphQL and Node.js. 
-        Currently part of a dynamic team, I focus on delivering clean, maintainable code and seamless user experiences. 
-        Constantly learning and pushing boundaries to stay at the forefront of frontend development.
-      </p>
-      <a href="/projects">View Projects</a>
-    </article>
-    <section id="projects">
-
-
-    </section>
-  </main>
-  
-  <footer>
-    <p>&copy; {{ site.time | date: '%Y' }} Gabriel Bahniuk</p>
-  </footer>
-
+    </footer>
+  </div>
 </body>
 </html>

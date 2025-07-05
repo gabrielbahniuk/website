@@ -1,0 +1,121 @@
+/* Reset styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+body {
+    line-height: 1.5em;
+    -webkit-font-smoothing: antialiased;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+/* End Reset styles */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    row-gap: 1em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25em;
+}
+
+.profile-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 0.5em;
+    box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.3);
+    margin: 1.25em 0;
+}
+
+h1 {
+    font-size: 1.6em;
+    color: #000;
+    font-weight: 500;
+}
+
+h2 {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #555;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 0.8em;
+    height: fit-content;
+    color: #5d5a63;
+}
+
+p {
+    color: #3c3a3a;
+}
+
+a {
+    color: #333;
+}
+
+footer {
+    margin-top: 1em;
+    width: 100%;
+}
+
+footer > ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    column-gap: 2em;
+}
+
+.link-text {
+    text-decoration: none;
+}
+
+.link-text > span:hover {
+    text-decoration: underline;
+}
