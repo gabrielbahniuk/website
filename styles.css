@@ -283,6 +283,11 @@ article.legal {
   padding-bottom: var(--space-sm);
 }
 
+article.legal address {
+  font-style: normal;
+  margin: 0 0 var(--space-sm);
+}
+
 h2.legal-page-title {
   font-family: var(--serif);
   font-size: var(--font-size-legal-title);
