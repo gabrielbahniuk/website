@@ -1,52 +1,83 @@
----
----
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="{{ site.author }}">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="pink" />
-  <meta name="description" content="{{ site.description }}">
-  <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/styles.css" />
-  <title>{{ site.author }} - {{ site.scope }}</title>
-  <link rel="canonical" href="{{ page.url }}">
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cf1bcd6ebe1b4fe7a16a9c96f4a8242d"}'></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div id="container">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Gabriel Bahniuk — Senior Software Engineer"
+    />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
+    <title>Gabriel Bahniuk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="theme-bar">
+      <input
+        type="checkbox"
+        id="invert-theme"
+        class="theme-input-sr-only"
+        aria-label="Invert color theme compared to system setting"
+      />
+      <label for="invert-theme" class="theme-toggle-label">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </label>
+    </div>
     <header>
-      <img src="assets/avatar.svg" alt="Avatar of {{ site.author }}" class="profile-image" />
-      <h1>{{ site.author }}</h1>
-      <h2>{{ site.company.position }} @ {{ site.company.title }}</h2>
+      <h1>Gabriel Bahniuk</h1>
+      <p class="intro">
+        <strong>Senior Software Engineer</strong>. User experience, front-end architecture, and what still matters after the first release.
+      </p>
+      <p class="meta">
+        Currently at <a href="https://scalable.capital/">Scalable Capital</a>
+      </p>
     </header>
 
-    <main>
-      <section id="about">
-        <h3>About me</h3>
-        <p>{{ site.description | markdownify }}</p>
-      </section>
-
-      <section id="contact">
-        <h3>Contact</h3>
+    <main id="main">
+      <section aria-labelledby="about-heading">
+        <h2 id="about-heading">About</h2>
         <p>
-          Are you working on something interesting or want to say hi? Feel free to reach out via
-          <a href="{{ site.social.email.href }}">{{ site.social.email.label }}</a>
-          or connect with me on
-         <a href="{{ site.social.linkedin.href }}" target="_blank" rel="noopener noreferrer">{{ site.social.linkedin.label }}</a>.
+          I build customer-facing features focusing on clarity, consistency, and compliance across high-traffic and highly regulated journeys.
         </p>
       </section>
+
+      <section aria-labelledby="highlights-heading">
+        <h2 id="highlights-heading">Selected highlights</h2>
+        <ul>
+          <li>Shipped customer-facing UI for overnight savings account (<span lang="de">Tagesgeld</span>), contributing to its public launch. Flows, resilient states, and pace of iteration under regulated constraints.</li>
+          <li>Led web E2E migration from Cypress to Playwright: tests, runners, and pipelines, and supported other teams through the same transition with a migration playbook.</li>
+          <li>For the European Accessibility Act target date, I revived the accessibility guild to restore cadence, ownership, and cross-team collaboration and delivery.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="side-projects-heading">
+        <h2 id="side-projects-heading">Side projects</h2>
+        <ul>
+          <li><a href="https://github.com/gabrielbahniuk/ista-ecotrend-reporter">ISTA EcoTrend Reporter</a> - Automated report for monthly heating consumption readings with charts and CSV export.</li>
+          <li><a href="https://github.com/gabrielbahniuk/guia-brasileiros-alemanha">German guide for brazilians</a> - A guide for Brazilian newcomers in Germany with automations e.g. preventing broken links in CI.</li>
+        </ul>
+      </section>
     </main>
-    
+
     <footer>
-      <ul>
-        <li>{% include external-link.html href=site.social.linkedin.href label=site.social.linkedin.label className="link-text" %}</li>
-        <li>{% include external-link.html href=site.social.github.href label=site.social.github.label className="link-text" %}</li>
-        <li>{% include external-link.html href=site.social.email.href label=site.social.email.label className="link-text" %}</li>
-      </ul>
+      <h2 id="footer-nav-heading" class="footer-contact-heading">Links</h2>
+      <nav class="footer-nav" aria-labelledby="footer-nav-heading">
+        <ul class="footer-links">
+          <li>
+            <a href="https://www.linkedin.com/in/gabriel-dias-bahniuk/" aria-label="Gabriel Bahniuk on LinkedIn">LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://github.com/gabrielbahniuk" aria-label="Gabriel Bahniuk on GitHub">GitHub</a>
+          </li>
+          <li>
+            <a href="mailto:hi@gabrielbahniuk.dev" aria-label="Email Gabriel Bahniuk">Email</a>
+          </li>
+          <li><a href="impressum.html">Imprint</a></li>
+          <li><a href="datenschutz.html">Privacy policy</a></li>
+        </ul>
+      </nav>
     </footer>
-  </div>
-</body>
+  </body>
 </html>
