@@ -59,11 +59,15 @@
   --space-after-intro: var(--space-2xs);
 
   --link-underline-offset: var(--ring-offset);
-  --link-rest-opacity: 0.88;
+  --link-rest-opacity: 0.80;
   --link-hover-opacity: 1;
 
   --border-solid: var(--space-hairline) solid var(--rule);
   --border-dashed: var(--space-hairline) dashed var(--rule);
+
+  --pill-bg: light-dark(#ebebeb, #252525);
+  --pill-bg-hover: light-dark(#e0e0e0, #2e2e2e);
+  --pill-border: light-dark(#dedede, #3a3a3a);
 
   --duration-fast: 0.15s;
   --ease-default: ease;
@@ -94,6 +98,9 @@
     --link-visited: #5f5688;
     --link-hover: #395a82;
     --focus-ring: #4d7199;
+    --pill-bg: #ebebeb;
+    --pill-bg-hover: #e0e0e0;
+    --pill-border: #dedede;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -106,6 +113,9 @@
       --link-visited: #ebe7fc;
       --link-hover: #f7faff;
       --focus-ring: #b8cef5;
+      --pill-bg: #252525;
+      --pill-bg-hover: #2e2e2e;
+      --pill-border: #3a3a3a;
     }
   }
 
@@ -119,6 +129,9 @@
       --link-visited: #ebe7fc;
       --link-hover: #f7faff;
       --focus-ring: #b8cef5;
+      --pill-bg: #252525;
+      --pill-bg-hover: #2e2e2e;
+      --pill-border: #3a3a3a;
     }
   }
 
@@ -132,6 +145,9 @@
       --link-visited: #5f5688;
       --link-hover: #395a82;
       --focus-ring: #4d7199;
+      --pill-bg: #ebebeb;
+      --pill-bg-hover: #e0e0e0;
+      --pill-border: #dedede;
     }
   }
 }
@@ -184,6 +200,21 @@ body {
   background: var(--bg);
 }
 
+body > header:not(.page-header-sub) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+body > header:not(.page-header-sub) > h1 {
+  margin-bottom: 0;
+}
+
+.header-lede {
+  display: flex;
+  flex-direction: column;
+}
+
 h1 {
   font-family: var(--serif);
   font-weight: 600;
@@ -201,7 +232,7 @@ h1 {
 .meta {
   color: var(--muted);
   font-size: var(--font-size-meta);
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 var(--space-md);
 }
 
 main {
@@ -266,6 +297,55 @@ li {
   margin-bottom: var(--space-list-item-gap);
 }
 
+main .pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  padding: 0;
+  margin: 0 0 var(--space-block-copy);
+  list-style: none;
+}
+
+main .pill-list > li {
+  margin: 0;
+}
+
+a.pill {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  background: var(--pill-bg);
+  border: var(--space-hairline) solid var(--pill-border);
+  color: var(--fg);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-snug);
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default),
+    color var(--duration-fast) var(--ease-default),
+    opacity var(--duration-fast) var(--ease-default);
+}
+
+a.pill:hover {
+  background: var(--pill-bg-hover);
+  color: var(--fg);
+  opacity: var(--link-hover-opacity);
+}
+
+a.pill:visited {
+  color: var(--fg);
+}
+
+a.pill:focus-visible {
+  color: var(--fg);
+}
+
 .hint {
   font-size: var(--font-size-sm);
   color: var(--muted);
@@ -321,8 +401,13 @@ footer {
   color: var(--muted);
 }
 
-h2.footer-contact-heading {
-  margin: 0 0 var(--space-stretch-xs);
+.footer-rule {
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--space-sm));
+  max-width: 100%;
+  margin: 0 auto var(--space-md);
+  border: 0;
+  border-top: var(--space-hairline) solid color-mix(in srgb, var(--rule) 42%, transparent);
 }
 
 .footer-nav {
@@ -344,6 +429,14 @@ h2.footer-contact-heading {
   min-height: var(--space-stretch-xl);
   padding: var(--space-2xs) var(--space-xs);
   margin: calc(-1 * var(--space-2xs)) calc(-1 * var(--space-xs));
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
 }
 
 .theme-bar {
@@ -372,6 +465,10 @@ h2.footer-contact-heading {
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle-label,
   a {
+    transition: none;
+  }
+
+  a.pill {
     transition: none;
   }
 }
